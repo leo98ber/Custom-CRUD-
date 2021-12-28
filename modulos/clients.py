@@ -13,14 +13,15 @@ class Client(object):
     
     def create(self,client):
         self.id = token.token()
-        self.id = input("Introduzca su nombre: ")
+        self.name = input("Introduzca su nombre: ")
         self.last_name = input("Introduzca su apellido: ")
         self.email = input("Introduzca su correo: ")
         self.enterprise = input("Introduzca su empresa: ")
         self.position = input("Introduzca su cargo: ")
 
-        client_1 = [
-        { 
+        
+
+        client_1 ={ 
             'id':self.id,
             'name':self.id,
             'last_name':self.last_name,
@@ -28,8 +29,10 @@ class Client(object):
             'enterprise':self.enterprise,
             'position':self.position,
         },
-        ]
-        client = [client_1 + client]
+        
+        print("Clientes actual: ",client,"\n clientes nuevos: ",client_1)
+        client = [client_1,client]
+        print("\n ",client)
         return client
     
     def read(self,option = "client"):

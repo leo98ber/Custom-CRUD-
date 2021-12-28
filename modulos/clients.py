@@ -1,5 +1,4 @@
-from os import name
-
+from modulos import token
 
 class Client(object):
     def __init__(self,id,name,last_name,email,enterprise,position):
@@ -12,9 +11,26 @@ class Client(object):
 
 
     
-    def create():
-        pass
+    def create(self,client):
+        self.id = token.token()
+        self.id = input("Introduzca su nombre: ")
+        self.last_name = input("Introduzca su apellido: ")
+        self.email = input("Introduzca su correo: ")
+        self.enterprise = input("Introduzca su empresa: ")
+        self.position = input("Introduzca su cargo: ")
 
+        client_1 = [
+        { 
+            'id':self.id,
+            'name':self.id,
+            'last_name':self.last_name,
+            'email':self.email,
+            'enterprise':self.enterprise,
+            'position':self.position,
+        },
+        ]
+        client = [client_1 + client]
+        return client
     
     def read(self,option = "client"):
         if option =="id":

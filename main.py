@@ -1,4 +1,4 @@
-from modulos import clients
+from modulos import interface
 
 
 client = {
@@ -11,21 +11,8 @@ client = {
         } # Agregar una llave user
 
 
-def interface_user():
-    iden,name,l_name,ent,email,pos = client.values()
-    module = input("Indique la modalidad: ")
-    module = module.upper()
-
-    if module == 'R':
-        cliente = clients.Client(iden,name,l_name,email,ent,pos)
-        option = input("Indique que desea visualizar: ")
-        cliente.read(option)
-
-
-
-
 def main():
-    interface_user()
+    interface.interface(client)
 
 
 

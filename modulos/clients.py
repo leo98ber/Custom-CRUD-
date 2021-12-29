@@ -21,7 +21,7 @@ class Client(object):
         }
         
         self.client.append(datos)
-        print("\nCliente creado:\n",self.client)
+        print("\nCliente creado:\n",datos)
        
 
         return self.client
@@ -30,7 +30,9 @@ class Client(object):
     def read(self,option="list_clients"):
 
         if option == "list_clients":
-            print("\nLista de clientes\n",self.client)
+            print("\nLista de clientes\n")
+            for client in self.client:
+                print("\nLista de clientes",client)
 
         elif option == "client":
             pk = int(input("\nIndique el id del cliente:\n"))
@@ -61,6 +63,7 @@ class Client(object):
         pk = pk-1
         cliente = self.client[pk]
         print("\nCliente seleccionado:\n",cliente)
+        # Hay que modificar el id una vez borrado el cliente, adaptando a los demas
         # Se puede agregar una opcion de confirmacion
         del self.client[pk]
         sleep(5)

@@ -23,8 +23,7 @@ def interface():
             cliente.update()
 
         if module == 'D':
-            option = input("\nIndique el usuario que desea eliminar:\n")
-            cliente.delete(option)
+            cliente.delete()
 
         if module == 'Q':
             break

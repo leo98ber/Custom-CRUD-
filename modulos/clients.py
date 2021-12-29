@@ -57,6 +57,15 @@ class Client(object):
         update.option_update(cliente)
 
     def delete(self):
-        pass
+        pk = int(input("\nIndique el id del cliente que desea eliminar:\n"))
+        pk = pk-1
+        cliente = self.client[pk]
+        print("\nCliente seleccionado:\n",cliente)
+        # Se puede agregar una opcion de confirmacion
+        del self.client[pk]
+        sleep(5)
+        print("\nCliente eliminado:\n")
+
+        
 
 

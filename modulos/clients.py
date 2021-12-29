@@ -1,17 +1,13 @@
-from modulos import token
+from modulos import create
+from modulos import read
 
 class Client(object):
     def __init__(self,client):
         self.client = client
     
     def create(self):
-        ident = len(self.client)+1
-        code = token.token()
-        name = input("Introduzca su nombre: ").capitalize()
-        last_name = input("Introduzca su apellido: ").capitalize()
-        email = input("Introduzca su correo: ").lower()
-        enterprise = input("Introduzca su empresa: ").capitalize()
-        position = input("Introduzca su cargo: ")
+
+        ident,code,name,last_name,email,enterprise,position = create.in_info(self.client)
 
         datos = { 
             'ident':ident,
@@ -35,46 +31,23 @@ class Client(object):
         if option == "list_clients":
             print("Lista de clientes",self.client)
 
-        if option == "client":
+        elif option == "client":
             pk = int(input("Indique el id del cliente: "))
             pk = pk-1
             cliente = self.client[pk]
             print(cliente)
 
-        if option == "date_client":
+        elif option == "date_client":
             pk = int(input("Indique el id del cliente: "))
             pk = pk-1
             cliente = self.client[pk]
             ident,code,name,last_name,email,enterprise,position = cliente.values()
+            read.option_read(ident,code,name,last_name,email,enterprise,position)
 
-            while True:
-                item = input("Indique el item que desea visualizar: ").lower()
-             #colocar error al colcoar comando incorrecto
-                if item =="id":
-                    print("Id: ",ident)
-                
-                elif item =="code":
-                    print("Codigo: ",code)
+        else:
+            print("Error usted introdujo una opcion invalida")# Agregar manejo de errores aqui
 
-                elif item =="name":
-                    print("Nombre: ",name)
 
-                elif item =="last_name":
-                    print("Apellido: ",last_name)
-
-                elif item == "email":
-                    print("Correo electronico: ",email)
-
-                elif item == "enterprise":
-                    print("Empresa: ",enterprise)
-
-                elif item == "position":
-                    print("Posicion: ",position)
-
-                elif item =="c":
-                    break
-                else: # Aqui debe ir una logica de error
-                    pass
 
 
         

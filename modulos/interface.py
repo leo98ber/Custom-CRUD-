@@ -4,19 +4,19 @@ from modulos import clients
 
 
 
-def interface(client):
+def interface():
+    client = []# Agregar una llave user
 
     while True:
-        iden,name,l_name,ent,email,pos = client.values()
-        cliente = clients.Client(iden,name,l_name,email,ent,pos)
+        cliente = clients.Client(client)
         module = input("Indique la modalidad: ")
         module = module.upper()
 
         if module == 'C':
-            cliente.create(client)
+            client = cliente.create()            
 
         if module == 'R':
-            option = input("Indique el item que desea visualizar: ")
+            option = input("Indique que desea visualizar: ")
             cliente.read(option)
 
         if module == 'U':

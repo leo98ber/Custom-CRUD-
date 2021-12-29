@@ -1,72 +1,87 @@
 from modulos import token
 
 class Client(object):
-    def __init__(self,id,name,last_name,email,enterprise,position):
-        self.id = id
-        self.name = name
-        self.last_name = last_name
-        self.email = email
-        self.enterprise = enterprise
-        self.position = position
+    def __init__(self,client):
+        self.client = client
+    
+    def create(self):
+        ident = len(self.client)+1
+        code = token.token()
+        name = input("Introduzca su nombre: ").capitalize()
+        last_name = input("Introduzca su apellido: ").capitalize()
+        email = input("Introduzca su correo: ").lower()
+        enterprise = input("Introduzca su empresa: ").capitalize()
+        position = input("Introduzca su cargo: ")
 
+        datos = { 
+            'ident':ident,
+            'code':code,
+            'name':name,
+            'last_name':last_name,
+            'email':email,
+            'enterprise':enterprise,
+            'position':position,
+        }
+        
+        self.client.append(datos)
+        print("Cliente creado: ",self.client)
+       
+
+        return self.client
 
     
-    def create(self,client):
-        self.id = token.token()
-        self.name = input("Introduzca su nombre: ")
-        self.last_name = input("Introduzca su apellido: ")
-        self.email = input("Introduzca su correo: ")
-        self.enterprise = input("Introduzca su empresa: ")
-        self.position = input("Introduzca su cargo: ")
+    def read(self,option="list_clients"):
 
-        
-
-        client_1 ={ 
-            'id':self.id,
-            'name':self.id,
-            'last_name':self.last_name,
-            'email':self.email,
-            'enterprise':self.enterprise,
-            'position':self.position,
-        },
-        
-        print("Clientes actual: ",client,"\n clientes nuevos: ",client_1)
-        client = [client_1,client]
-        print("\n ",client)
-        return client
-    
-    def read(self,option = "client"):
-        if option =="id":
-            print("Id: ",self.id)
-
-        if option =="name":
-            print("Nombre: ",self.name)
-
-        if option =="last_name":
-            print("Apellido: ",self.last_name)
-
-        if option == "email":
-            print("Correo electronico: ",self.email)
-
-        if option == "enterprise":
-            print("Empresa: ",self.enterprise)
-
-        if option == "position":
-            print("Posicion: ",self.position)
+        if option == "list_clients":
+            print("Lista de clientes",self.client)
 
         if option == "client":
-            print(        
-            self.id,
-            self.name,
-            self.last_name,
-            self.email,
-            self.enterprise,
-            self.position,)
+            pk = int(input("Indique el id del cliente: "))
+            pk = pk-1
+            cliente = self.client[pk]
+            print(cliente)
+
+        if option == "date_client":
+            pk = int(input("Indique el id del cliente: "))
+            pk = pk-1
+            cliente = self.client[pk]
+            ident,code,name,last_name,email,enterprise,position = cliente.values()
+
+            while True:
+                item = input("Indique el item que desea visualizar: ").lower()
+             #colocar error al colcoar comando incorrecto
+                if item =="id":
+                    print("Id: ",ident)
+                
+                elif item =="code":
+                    print("Codigo: ",code)
+
+                elif item =="name":
+                    print("Nombre: ",name)
+
+                elif item =="last_name":
+                    print("Apellido: ",last_name)
+
+                elif item == "email":
+                    print("Correo electronico: ",email)
+
+                elif item == "enterprise":
+                    print("Empresa: ",enterprise)
+
+                elif item == "position":
+                    print("Posicion: ",position)
+
+                elif item =="c":
+                    break
+                else: # Aqui debe ir una logica de error
+                    pass
+
+
         
     def update():
         pass
     def delete():
         pass
-    def search():
-        pass
+    def search(): # Search deberia ser un modulo de read porque se buscan datos
+        pass # Para buscar datos puedo considerar volver el json un numpy array
 

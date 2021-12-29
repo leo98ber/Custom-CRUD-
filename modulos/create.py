@@ -4,10 +4,10 @@ from modulos import token
 def in_info(client):
     ident = len(client)+1
     code = token.token()
-    name = input("Introduzca su nombre: ").capitalize()
-    last_name = input("Introduzca su apellido: ").capitalize()
-    email = input("Introduzca su correo: ").lower()
-    enterprise = input("Introduzca su empresa: ").capitalize()
-    position = input("Introduzca su cargo: ")
+    name = input("\nIntroduzca su nombre:\n").capitalize()
+    last_name = input("\nIntroduzca su apellido:\n").capitalize()
+    email = input("\nIntroduzca su correo:\n").lower()
+    enterprise = input("\nIntroduzca su empresa:\n").capitalize()
+    position = input("\nIntroduzca su cargo:\n")
 
     return  ident,code,name,last_name,email,enterprise,position

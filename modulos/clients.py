@@ -1,12 +1,13 @@
-from modulos import create
-from modulos import read
+from modulos import read,update,create
+from time import sleep, time
 
 class Client(object):
     def __init__(self,client):
         self.client = client
     
     def create(self):
-
+        print("\nIntroduzca los datos solicitados para crear el cliente\n")
+        sleep(3)
         ident,code,name,last_name,email,enterprise,position = create.in_info(self.client)
 
         datos = { 
@@ -20,7 +21,7 @@ class Client(object):
         }
         
         self.client.append(datos)
-        print("Cliente creado: ",self.client)
+        print("\nCliente creado:\n",self.client)
        
 
         return self.client
@@ -29,32 +30,33 @@ class Client(object):
     def read(self,option="list_clients"):
 
         if option == "list_clients":
-            print("Lista de clientes",self.client)
+            print("\nLista de clientes\n",self.client)
 
         elif option == "client":
-            pk = int(input("Indique el id del cliente: "))
+            pk = int(input("\nIndique el id del cliente:\n"))
             pk = pk-1
             cliente = self.client[pk]
             print(cliente)
 
         elif option == "date_client":
-            pk = int(input("Indique el id del cliente: "))
+            pk = int(input("\nIndique el id del cliente:\n"))
             pk = pk-1
             cliente = self.client[pk]
             ident,code,name,last_name,email,enterprise,position = cliente.values()
             read.option_read(ident,code,name,last_name,email,enterprise,position)
 
         else:
-            print("Error usted introdujo una opcion invalida")# Agregar manejo de errores aqui
-
-
-
+            print("\nError usted introdujo una opcion invalida\n")# Agregar manejo de errores aqui
 
         
-    def update():
+    def update(self):
+        pk = int(input("\nIndique el id del cliente que desea modificar: \n"))
+        pk = pk-1
+        cliente = self.client[pk]
+        print("\nDatos del cliente seleccionado:\n",cliente)
+        update.option_update(cliente)
+
+    def delete(self):
         pass
-    def delete():
-        pass
-    def search(): # Search deberia ser un modulo de read porque se buscan datos
-        pass # Para buscar datos puedo considerar volver el json un numpy array
+
 

@@ -9,27 +9,22 @@ def interface():
 
     while True:
         cliente = clients.Client(client)
-        module = input("Indique la modalidad: ")
+        module = input('\nIndique la modalidad o presione "q" para escapar:\n')
         module = module.upper()
 
         if module == 'C':
             client = cliente.create()            
 
         if module == 'R':
-            option = input("Indique que desea visualizar: ")
+            option = input("\nIndique que desea visualizar:\n")
             cliente.read(option)
 
         if module == 'U':
-            option = input("Indtroduzca el item que desea modificar: ")
-            cliente.update(option)
+            cliente.update()
 
         if module == 'D':
-            option = input("Indique el usuario que desea eliminar: ")
+            option = input("\nIndique el usuario que desea eliminar:\n")
             cliente.delete(option)
-
-        if module == 'S':
-            option = input("Indique el item o usuario que desea buscar: ")
-            cliente.search(option)
 
         if module == 'Q':
             break

@@ -64,6 +64,7 @@ class Client(object):
         cliente = self.client[pk]
         print("\nCliente seleccionado:\n",cliente)
         # Hay que modificar el id una vez borrado el cliente, adaptando a los demas
+        # Opcion, hacer un for enumerate cuyo maximo sea len+1 y asignando un nuevo indice a cada usuario con la logica de edicion del update
         # Se puede agregar una opcion de confirmacion
         del self.client[pk]
         sleep(5)

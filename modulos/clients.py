@@ -7,24 +7,10 @@ class Client(object):
     
     def create(self):
         print("\nIntroduzca los datos solicitados para crear el cliente\n")
-        sleep(3)
-        ident,code,name,last_name,email,enterprise,position = create.in_info(self.client)
+        sleep(1)
+        ident,code,name,last_name,email,enterprise,position = create.in_info()
+        create.write(ident,code,name,last_name,email,enterprise,position)
 
-        datos = { 
-            'ident':ident,
-            'code':code,
-            'name':name,
-            'last_name':last_name,
-            'email':email,
-            'enterprise':enterprise,
-            'position':position,
-        }
-        
-        self.client.append(datos)
-        print("\nCliente creado:\n",datos)
-       
-
-        return self.client
 
     
     def read(self,option="list_clients"):

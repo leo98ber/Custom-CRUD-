@@ -1,9 +1,5 @@
 from modulos import clients
 
-
-
-
-
 def interface():
     client = []# Agregar una llave user
 

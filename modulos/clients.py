@@ -2,15 +2,16 @@ from modulos import read,update,create
 from time import sleep, time
 
 class Client(object):
-    def __init__(self,handler):
+    def __init__(self,handler,info_client):
         self.handler = handler
         self.client = self.handler.reader()
+        self.info_client = info_client
     
     def create(self):
         print("\nIntroduzca los datos solicitados para crear el cliente\n")
         sleep(1)
-        ident,code,name,last_name,email,enterprise,position = create.in_info()
-        create.write(ident,code,name,last_name,email,enterprise,position)
+        ident,code,name,last_name,email,enterprise,position = self.info_client.in_info()
+        self.handler.writer(ident,code,name,last_name,email,enterprise,position)
 
 
     

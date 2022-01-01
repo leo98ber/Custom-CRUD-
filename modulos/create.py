@@ -1,4 +1,4 @@
-from modulos import handler_fields, token,read,x       
+from modulos import handler_fields, token,read   
 import csv 
 from os import path
 
@@ -8,11 +8,11 @@ class Field_exist(handler_fields.Handler_fields):
     def __init__(self,field_name,data_base):
         super().__init__(field_name,data_base) 
 
+
     def exist(self):
         exist = path.isfile(self.field_name)
-        print(exist)
         if exist == True:
-            ni = self.reader(self.data_base)
+            ni = self.reader()
             ident = len(ni)+1
         else:
             ident = 1

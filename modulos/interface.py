@@ -1,10 +1,14 @@
-from modulos import clients, handler_fields
+from modulos import clients,create, handler_fields
+
+data_base = ["ident","code","name","last_name","email","enterprise","position"]
+field_name = "Names.csv"
 
 def interface():
 
     while True:
-        handler = handler_fields.Handler_fields()
-        cliente = clients.Client(handler)
+        handler = handler_fields.Handler_fields(field_name,data_base)
+        info_client = create.Field_exist(field_name,data_base)
+        cliente = clients.Client(handler,info_client)
         module = input('\nIndique la modalidad o presione "q" para escapar:\n')
         module = module.upper()
 

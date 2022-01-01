@@ -41,6 +41,6 @@ class Handler_fields(object):
         for client in new_data_base:
             with open(self.field_name,'w') as archivo: 
                 writer = csv.DictWriter(archivo, fieldnames = self.data_base) 
-                writer.writerow(client)
+                writer.writerows(client)
                 archivo.close()
 

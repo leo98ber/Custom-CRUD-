@@ -32,11 +32,3 @@ def option_read(ident,code,name,last_name,email,enterprise,position):
         else: # Aqui debe ir una logica de error
             pass    
 
-def read(data_base):
-    dates = []
-    with open('Names.csv', mode ='r') as archivo:
-        reader = csv.DictReader(archivo,fieldnames=data_base) 
-        for row in reader:
-            dates.append(row) 
-        archivo.close()
-    return dates

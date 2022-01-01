@@ -1,15 +1,15 @@
-from modulos import clients
+from modulos import clients, handler_fields
 
 def interface():
-    client = []# Agregar una llave user
 
     while True:
-        cliente = clients.Client(client)
+        handler = handler_fields.Handler_fields()
+        cliente = clients.Client(handler)
         module = input('\nIndique la modalidad o presione "q" para escapar:\n')
         module = module.upper()
 
         if module == 'C':
-            client = cliente.create()            
+           cliente.create()            
 
         if module == 'R':
             option = input("\nIndique que desea visualizar:\n")

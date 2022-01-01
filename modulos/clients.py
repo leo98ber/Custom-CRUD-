@@ -4,7 +4,7 @@ from time import sleep, time
 class Client(object):
     def __init__(self,handler,info_client):
         self.handler = handler
-        self.client = self.handler.reader()
+        self.clients = self.handler.reader()
         self.info_client = info_client
     
     def create(self):
@@ -19,20 +19,20 @@ class Client(object):
 
         if option == "list_clients":
             print("\nLista de clientes\n")
-            for client in self.client:
+            for client in self.clients:
                 print("\nLista de clientes",client)
 
         elif option == "client":
             pk = int(input("\nIndique el id del cliente:\n"))
             pk = pk-1
-            cliente = self.client[pk]
-            print(cliente)
+            client = self.clients[pk]
+            print(client)
 
         elif option == "date_client":
             pk = int(input("\nIndique el id del cliente:\n"))
             pk = pk-1
-            cliente = self.client[pk]
-            ident,code,name,last_name,email,enterprise,position = cliente.values()
+            client = self.clients[pk]
+            ident,code,name,last_name,email,enterprise,position = client.values()
             read.option_read(ident,code,name,last_name,email,enterprise,position)
 
         else:

@@ -1,4 +1,4 @@
-from modulos import read,update,create
+from modulos import delete, read,update,create
 from time import sleep, time
 
 class Client(object):
@@ -49,14 +49,8 @@ class Client(object):
     def delete(self):
         pk = int(input("\nIndique el id del cliente que desea eliminar:\n"))
         pk = pk-1
-        cliente = self.client[pk]
-        print("\nCliente seleccionado:\n",cliente)
-        # Hay que modificar el id una vez borrado el cliente, adaptando a los demas
-        # Opcion, hacer un for enumerate cuyo maximo sea len+1 y asignando un nuevo indice a cada usuario con la logica de edicion del update
-        # Se puede agregar una opcion de confirmacion
-        del self.client[pk]
-        sleep(5)
-        print("\nCliente eliminado:\n")
+        delete.delete(self.handler,self.clients,pk)
+
 
         
 

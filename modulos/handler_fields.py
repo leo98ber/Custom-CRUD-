@@ -38,9 +38,9 @@ class Handler_fields(object):
 
 
     def deleter(self,new_data_base):
-        for client in new_data_base:
-            with open(self.field_name,'w') as archivo: 
-                writer = csv.DictWriter(archivo, fieldnames = self.data_base) 
-                writer.writerows(client)
+            with open(self.field_name ,'w') as archivo: 
+                for client in new_data_base:
+                    writer = csv.DictWriter(archivo, fieldnames = self.data_base) 
+                    writer.writerow(client)
                 archivo.close()
-
+            

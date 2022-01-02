@@ -14,7 +14,6 @@ class Client(object):
         self.handler.creater(ident,code,name,last_name,email,enterprise,position)
 
 
-    
     def read(self,option="list_clients"):
 
         if option == "list_clients":
@@ -22,14 +21,19 @@ class Client(object):
             for client in self.clients:
                 print("\n",client)
 
+        elif option == "Filter":
+            tag = input("Introduzca un tag para filtrar")
+            keyword = input("\nIntroduzca informacion clave para la busqueda\n")
+            read.search(self.clients,keyword,tag)
+
         elif option == "client":
-            pk = int(input("\nIndique el id del cliente:\n"))
+            pk = int(input("\nIndique el id del cliente que desea visualizar:\n"))
             pk = pk-1
             client = self.clients[pk]
             print(client)
 
         elif option == "date_client":
-            pk = int(input("\nIndique el id del cliente:\n"))
+            pk = int(input("\nIndique el id del cliente que desea visualizar:\n"))
             pk = pk-1
             client = self.clients[pk]
             ident,code,name,last_name,email,enterprise,position = client.values()
@@ -42,8 +46,6 @@ class Client(object):
     def update(self):
         pk = int(input("\nIndique el id del cliente que desea modificar: \n"))
         pk = pk-1
-        cliente = self.clients[pk]
-        print("\nDatos del cliente seleccionado:\n",cliente)
         update.option_update(self.handler,self.clients,pk)
 
     def delete(self):

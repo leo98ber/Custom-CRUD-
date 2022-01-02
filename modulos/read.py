@@ -1,7 +1,5 @@
-import csv 
-
 # Para buscar datos puedo considerar volver el json un numpy array o usar comprehension
-
+from time import sleep
 def option_read(ident,code,name,last_name,email,enterprise,position):
     while True:
         item = input('\nIndique el item que desea visualizar o presione "q" para escapar:\n').lower()
@@ -32,3 +30,5 @@ def option_read(ident,code,name,last_name,email,enterprise,position):
         else: # Aqui debe ir una logica de error
             pass    
 
+def search(list_clients,keyword,tag):# introducir metodos de texto para volver todo minuscula y eliminar espacios con los metodos de strp
+    new_list = [(print("\n",client),client) for client in list_clients if client[tag] == keyword]

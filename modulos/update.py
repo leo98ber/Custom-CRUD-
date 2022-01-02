@@ -1,5 +1,6 @@
 def option_update(handler,clients,pk):
     client = clients[pk]
+    print("\nDatos del cliente seleccionado:\n",client)
     while True:
         item = input('\nIndique el item que desea modificar o presione "q" para escapar:\n').lower()
              #colocar error al colcoar comando incorrecto

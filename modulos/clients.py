@@ -11,7 +11,7 @@ class Client(object):
         print("\nIntroduzca los datos solicitados para crear el cliente\n")
         sleep(1)
         ident,code,name,last_name,email,enterprise,position = self.info_client.in_info()
-        self.handler.writer(ident,code,name,last_name,email,enterprise,position)
+        self.handler.creater(ident,code,name,last_name,email,enterprise,position)
 
 
     
@@ -20,7 +20,7 @@ class Client(object):
         if option == "list_clients":
             print("\nLista de clientes\n")
             for client in self.clients:
-                print("\nLista de clientes",client)
+                print("\n",client)
 
         elif option == "client":
             pk = int(input("\nIndique el id del cliente:\n"))
@@ -42,9 +42,9 @@ class Client(object):
     def update(self):
         pk = int(input("\nIndique el id del cliente que desea modificar: \n"))
         pk = pk-1
-        cliente = self.client[pk]
+        cliente = self.clients[pk]
         print("\nDatos del cliente seleccionado:\n",cliente)
-        update.option_update(cliente)
+        update.option_update(self.handler,self.clients,pk)
 
     def delete(self):
         pk = int(input("\nIndique el id del cliente que desea eliminar:\n"))

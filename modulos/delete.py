@@ -12,7 +12,7 @@ def delete(handler,clients,pk):
         for x,y in enumerate(clients):
             y["ident"] = x+1 
 
-        handler.deleter(clients)
+        handler.writer(clients)
         sleep(2)
         print("\nCliente eliminado:\n")
 

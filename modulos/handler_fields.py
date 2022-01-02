@@ -16,7 +16,7 @@ class Handler_fields(object):
         return dates
 
 
-    def writer(self,ident,code,name,last_name,email,enterprise,position):  
+    def creater(self,ident,code,name,last_name,email,enterprise,position):  
         temp = []
         dates = [{ 
                 'ident':ident,
@@ -37,10 +37,12 @@ class Handler_fields(object):
         print("\nCliente creado:\n",dates)
 
 
-    def deleter(self,new_data_base):
+    def writer(self,new_data_base):
             with open(self.field_name ,'w') as archivo: 
                 for client in new_data_base:
                     writer = csv.DictWriter(archivo, fieldnames = self.data_base) 
                     writer.writerow(client)
                 archivo.close()
+
+
             

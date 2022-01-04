@@ -22,7 +22,7 @@ class Field_exist(handler_fields.Handler_fields):
     def in_info(self):
         ident = self.exist()
         code = token.token()
-        name = input("\nIntroduzca su nombre:\n").capitalize()
+        name = input("\nIntroduzca su nombre:\n").capitalize().strip()
         last_name = input("\nIntroduzca su apellido:\n").capitalize()
         email = input("\nIntroduzca su correo:\n").lower()
         enterprise = input("\nIntroduzca su empresa:\n").capitalize()

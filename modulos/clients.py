@@ -14,16 +14,17 @@ class Client(object):
         self.handler.creater(ident,code,name,last_name,email,enterprise,position)
 
 
-    def read(self,option="list_clients"):
+    def read(self):
+        option = input("\nIndique que desea visualizar:\n").lower().strip()
 
         if option == "list_clients":
             print("\nLista de clientes\n")
             for client in self.clients:
                 print("\n",client)
 
-        elif option == "Filter":
-            tag = input("Introduzca un tag para filtrar")
-            keyword = input("\nIntroduzca informacion clave para la busqueda\n")
+        elif option == "filter_clients":
+            tag = input("\nIntroduzca un tag para filtrar: \n").lower().strip()
+            keyword = input("\nIntroduzca informacion clave para la busqueda\n").lower().strip()
             read.search(self.clients,keyword,tag)
 
         elif option == "client":
@@ -40,7 +41,7 @@ class Client(object):
             read.option_read(ident,code,name,last_name,email,enterprise,position)
 
         else:
-            print("\nError usted introdujo una opcion invalida\n")# Agregar manejo de errores aqui
+            print("\nError usted introdujo una opcion invalida intente de nuevo\n")
 
         
     def update(self):

@@ -3,8 +3,7 @@ from time import sleep
 def delete(handler,clients,pk):
     client = clients[pk]
     print("\nCliente seleccionado:\n",client)
-        # Se puede agregar una opcion de confirmacion
-    option = input("\nEsta seguro que desea eliminar este cliente y/n:")
+    option = input("\nEsta seguro que desea eliminar este cliente y/n:").lower().strip()
 
     if option == "y":
         del clients[pk]
@@ -17,5 +16,5 @@ def delete(handler,clients,pk):
         print("\nCliente eliminado:\n")
 
     else:
-        print("\nEL cliente no ha sido eliminado\n")
+        print("\nEl cliente no ha sido eliminado\n")
    

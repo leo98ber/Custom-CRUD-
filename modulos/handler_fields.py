@@ -19,7 +19,7 @@ class Handler_fields(object):
     def creater(self,ident,code,name,last_name,email,enterprise,position):  
         temp = []
         dates = [{ 
-                'ident':ident,
+                'id':ident,
                 'code':code,
                 'name':name,
                 'last_name':last_name,

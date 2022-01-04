@@ -1,9 +1,8 @@
-# Para buscar datos puedo considerar volver el json un numpy array o usar comprehension
 from time import sleep
 def option_read(ident,code,name,last_name,email,enterprise,position):
     while True:
-        item = input('\nIndique el item que desea visualizar o presione "q" para escapar:\n').lower()
-             #colocar error al colcoar comando incorrecto
+        item = input('\nIndique el item que desea visualizar o presione "q" para volver al menu principal: \n').lower().strip()
+
         if item =="id":
             print("\nId: \n",ident)
                 
@@ -27,8 +26,10 @@ def option_read(ident,code,name,last_name,email,enterprise,position):
 
         elif item =="q":
             break
-        else: # Aqui debe ir una logica de error
-            pass    
+        else: 
+            print("Opcion invalida")
+            sleep(1.5)
+            print('Introduzca una opcion valida o presione "q" para escapar')   
 
-def search(list_clients,keyword,tag):# introducir metodos de texto para volver todo minuscula y eliminar espacios con los metodos de strp
-    new_list = [(print("\n",client),client) for client in list_clients if client[tag] == keyword]
+def search(list_clients,keyword,tag): 
+    new_list = [(print("\n",client),client) for client in list_clients if client[tag].lower() == keyword]

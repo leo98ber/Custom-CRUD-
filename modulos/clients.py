@@ -50,7 +50,7 @@ class Client(object):
         update.option_update(self.handler,self.clients,pk)
     
     @errors.client_doesnt_exist
-    def delete(self):
+    def delete(self): 
         pk = int(input("\nIndique el id del cliente que desea eliminar:\n"))
         pk = pk-1
         delete.delete(self.handler,self.clients,pk)

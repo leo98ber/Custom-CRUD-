@@ -1,4 +1,4 @@
-from modulos import delete, read,update,create
+from modulos import delete, read,update,create,errors
 from time import sleep, time
 
 class Client(object):
@@ -13,7 +13,7 @@ class Client(object):
         ident,code,name,last_name,email,enterprise,position = self.info_client.in_info()
         self.handler.creater(ident,code,name,last_name,email,enterprise,position)
 
-
+    @errors.client_doesnt_exist
     def read(self):
         option = input("\nIndique que desea visualizar:\n").lower().strip()
 
@@ -43,12 +43,13 @@ class Client(object):
         else:
             print("\nError usted introdujo una opcion invalida intente de nuevo\n")
 
-        
+    @errors.client_doesnt_exist
     def update(self):
         pk = int(input("\nIndique el id del cliente que desea modificar: \n"))
         pk = pk-1
         update.option_update(self.handler,self.clients,pk)
-
+    
+    @errors.client_doesnt_exist
     def delete(self):
         pk = int(input("\nIndique el id del cliente que desea eliminar:\n"))
         pk = pk-1

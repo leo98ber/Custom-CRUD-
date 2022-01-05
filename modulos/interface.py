@@ -13,17 +13,21 @@ def interface():
         module = module.upper().strip()
 
         if module == 'C':
-           cliente.create()            
+            cliente.create()            
 
-        if module == 'R':
+        elif module == 'R':
             cliente.read()
 
-        if module == 'U':
+        elif module == 'U':
             cliente.update()
 
-        if module == 'D':
+        elif module == 'D':
             cliente.delete()
 
-        if module == 'Q':
+        elif module == 'Q':
             break
 
+        else:
+            print("\nError usted introdujo una opcion invalida intente de nuevo\n")
+
+ 

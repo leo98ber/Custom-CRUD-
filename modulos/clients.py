@@ -2,6 +2,7 @@ from modulos import delete, read,update,create,errors
 from time import sleep, time
 
 class Client(object):
+    
     def __init__(self,handler,info_client):
         self.handler = handler
         self.info_client = info_client
@@ -11,6 +12,7 @@ class Client(object):
     @errors.error_decorate
     @errors.type_error
     def create(self):
+        """INSTRUCCIONES"""
         print("\nIntroduzca los datos solicitados para crear el cliente\n")
         sleep(1)
         ident,code,name,last_name,age,email,enterprise,position,company_years= self.info_client.in_info()

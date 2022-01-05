@@ -47,12 +47,16 @@ class Client(object):
         else:
             print("\nError usted introdujo una opcion invalida intente de nuevo\n")
 
+
+    @errors.type_error
+    @errors.error_decorate
     @errors.client_doesnt_exist
     def update(self):
         pk = int(input("\nIndique el id del cliente que desea modificar: \n"))
         pk = pk-1
         update.option_update(self.handler,self.clients,pk)
-    
+
+
     @errors.client_doesnt_exist
     def delete(self): 
         pk = int(input("\nIndique el id del cliente que desea eliminar:\n"))

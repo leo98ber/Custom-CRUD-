@@ -58,5 +58,5 @@ def option_update(handler,clients,pk):
             sleep(1.5)
             print('Introduzca una opcion valida o presione "q" para escapar')
 
-        name,last_name,age,email,enterprise,position,company_years = client.values()     
-        #errors.empty_error_func(name,last_name,age,email,enterprise,position,company_years)
+        id,code,name,last_name,age,email,enterprise,position,company_years = client.values()     
+        errors.empty_error_func(name,last_name,email,enterprise,position)

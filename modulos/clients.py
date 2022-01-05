@@ -12,7 +12,6 @@ class Client(object):
     @errors.error_decorate
     @errors.type_error
     def create(self):
-        """INSTRUCCIONES"""
         print("\nIntroduzca los datos solicitados para crear el cliente\n")
         sleep(1)
         ident,code,name,last_name,age,email,enterprise,position,company_years= self.info_client.in_info()
@@ -58,7 +57,7 @@ class Client(object):
         pk = pk-1
         update.option_update(self.handler,self.clients,pk)
 
-
+    @errors.type_error
     @errors.client_doesnt_exist
     def delete(self): 
         pk = int(input("\nIndique el id del cliente que desea eliminar:\n"))

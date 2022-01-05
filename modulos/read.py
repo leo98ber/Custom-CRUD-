@@ -1,4 +1,5 @@
 from time import sleep
+
 def option_read(ident,code,name,last_name,email,enterprise,position):
     while True:
         item = input('\nIndique el item que desea visualizar o presione "q" para volver al menu principal: \n').lower().strip()
@@ -33,3 +34,8 @@ def option_read(ident,code,name,last_name,email,enterprise,position):
 
 def search(list_clients,keyword,tag): 
     new_list = [(print("\n",client),client) for client in list_clients if client[tag].lower() == keyword]
+    not_finded = len(new_list)
+    if not_finded == 0:
+        print("\n No se han encontrado resultados para su busqueda")
+
+    

@@ -1,8 +1,5 @@
-from modulos import handler_fields, token,read   
-import csv 
+from modulos import handler_fields,token 
 from os import path
-
-
 
 class Field_exist(handler_fields.Handler_fields):
     def __init__(self,field_name,data_base):

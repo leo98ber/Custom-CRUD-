@@ -17,23 +17,17 @@ def token():
 
     for x in range(12):
         token_1 += random.choice(letras_min)
-        #vacio_1.append(ramdom)
     
     for x in range(12):
         token_2 += random.choice(letras_may)
-        #vacio_2.append(ramdom)
 
     for x in range(16):
         token_3 += random.choice(numeros)
-        #vacio_2.append(ramdom)
-        
-    
+
     caracteres = token_1 + token_2 + token_3
 
     for x in range(40):
         token += random.choice(caracteres)
-        #vacio.append(ramdom)
-
-        
+     
     return token
 

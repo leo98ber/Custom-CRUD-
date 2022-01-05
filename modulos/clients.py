@@ -13,6 +13,7 @@ class Client(object):
         ident,code,name,last_name,email,enterprise,position = self.info_client.in_info()
         self.handler.creater(ident,code,name,last_name,email,enterprise,position)
 
+    @errors.tag_doesnt_exist
     @errors.client_doesnt_exist
     def read(self):
         option = input("\nIndique que desea visualizar:\n").lower().strip()

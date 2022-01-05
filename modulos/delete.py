@@ -9,7 +9,7 @@ def delete(handler,clients,pk):
         del clients[pk]
 
         for x,y in enumerate(clients):
-            y["ident"] = x+1 
+            y["id"] = x+1 
 
         handler.writer(clients)
         sleep(2)

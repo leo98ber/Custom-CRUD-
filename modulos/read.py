@@ -1,6 +1,6 @@
 from time import sleep
 
-def option_read(ident,code,name,last_name,email,enterprise,position):
+def option_read(ident,code,name,last_name,age,email,enterprise,position,company_years):
     while True:
         item = input('\nIndique el item que desea visualizar o presione "q" para volver al menu principal: \n').lower().strip()
 
@@ -15,6 +15,9 @@ def option_read(ident,code,name,last_name,email,enterprise,position):
 
         elif item =="last_name":
             print("\nApellido:\n",last_name)
+        
+        elif item =="age":
+            print("\nEdad:\n",age)
 
         elif item == "email":
             print("\nCorreo electronico:\n",email)
@@ -24,6 +27,9 @@ def option_read(ident,code,name,last_name,email,enterprise,position):
 
         elif item == "position":
             print("\nPosicion:\n",position)
+
+        elif item == "company_years":
+            print("\nAños en la compañia:\n",company_years)
 
         elif item =="q":
             break

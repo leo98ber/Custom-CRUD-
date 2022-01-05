@@ -1,13 +1,12 @@
-list_clients  = [
-        {"ident":1,"code":"ninguno","name":"jose","last_name":"marquez","email":"N/A","enterprise":"N/A","position":"N/A"},
-        {"ident":1,"code":"ninguno","name":"jose","last_name":"marquez","email":"N/A","enterprise":"N/A","position":"N/A"},
-        {"ident":2,"code":"ninguno","name":"jose","last_name":"marquez","email":"N/A","enterprise":"N/A","position":"N/A"},
-        {"ident":1,"code":"ninguno","name":"jose","last_name":"marquez","email":"N/A","enterprise":"N/A","position":"N/A"},
-        {"ident":6,"code":"ninguno","name":"jose","last_name":"marquez","email":"N/A","enterprise":"N/A","position":"N/A"},
-        ]
-keyword = 1
-tag = "ident"
+def years_error(age,company_years):
+        assert (age >= 18 and age <= 70),"Error introdugiste una edad invalida, la misma debe estar comprendida entre 18-70 años" 
+        return age
+        
 
+age = 10 
+company_years = 15
+
+print(years_error(age,company_years))
 
 
 

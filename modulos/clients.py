@@ -4,14 +4,17 @@ from time import sleep, time
 class Client(object):
     def __init__(self,handler,info_client):
         self.handler = handler
-        self.clients = self.handler.reader()
         self.info_client = info_client
-    
+        self.info_client.exist()
+        self.clients = self.handler.reader()
+
+    @errors.error_decorate
+    @errors.type_error
     def create(self):
         print("\nIntroduzca los datos solicitados para crear el cliente\n")
         sleep(1)
-        ident,code,name,last_name,email,enterprise,position = self.info_client.in_info()
-        self.handler.creater(ident,code,name,last_name,email,enterprise,position)
+        ident,code,name,last_name,age,email,enterprise,position,company_years= self.info_client.in_info()
+        self.handler.creater(ident,code,name,last_name,age,email,enterprise,position,company_years)
 
     @errors.tag_doesnt_exist
     @errors.client_doesnt_exist
@@ -38,8 +41,8 @@ class Client(object):
             pk = int(input("\nIndique el id del cliente que desea visualizar:\n"))
             pk = pk-1
             client = self.clients[pk]
-            ident,code,name,last_name,email,enterprise,position = client.values()
-            read.option_read(ident,code,name,last_name,email,enterprise,position)
+            ident,code,name,last_name,age,email,enterprise,position,company_years = client.values()
+            read.option_read(ident,code,name,last_name,age,email,enterprise,position,company_years)
 
         else:
             print("\nError usted introdujo una opcion invalida intente de nuevo\n")

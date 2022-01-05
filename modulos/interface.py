@@ -1,6 +1,6 @@
 from modulos import clients,create, handler_fields
 
-data_base = ["id","code","name","last_name","email","enterprise","position"]
+data_base = ["id","code","name","last_name","age","email","enterprise","position","company_years"]
 field_name = "Names.csv"
 
 def interface():

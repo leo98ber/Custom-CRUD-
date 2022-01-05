@@ -1,5 +1,7 @@
 from time import sleep
 
+from modulos import errors
+
 def option_update(handler,clients,pk):
     client = clients[pk]
     print("\nDatos del cliente seleccionado:\n",client)
@@ -15,6 +17,12 @@ def option_update(handler,clients,pk):
         elif item =="last_name":
             last_name = input("\nIntroduzca el apellido:\n").capitalize().strip()
             client["last_name"] = last_name
+            clients[pk] = client
+            handler.writer(clients)
+
+        elif item == "age":
+            age = int(input("\nIntroduzca la edad:\n").strip())
+            client["age"] = age
             clients[pk] = client
             handler.writer(clients)
 
@@ -36,10 +44,19 @@ def option_update(handler,clients,pk):
             clients[pk] = client
             handler.writer(clients)
 
+        elif item == "company_years":
+            company_years = int(input("\nIntroduzca los años de servicio:\n").strip())
+            client["company_years"] = company_years
+            clients[pk] = client
+            handler.writer(clients)
+
         elif item =="q":
             break
 
         else: 
             print("Opcion invalida")
             sleep(1.5)
-            print('Introduzca una opcion valida o presione "q" para escapar')   
+            print('Introduzca una opcion valida o presione "q" para escapar')
+
+        name,last_name,age,email,enterprise,position,company_years = client.values()     
+        #errors.empty_error_func(name,last_name,age,email,enterprise,position,company_years)

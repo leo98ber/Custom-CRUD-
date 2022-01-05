@@ -16,16 +16,18 @@ class Handler_fields(object):
         return dates
 
 
-    def creater(self,ident,code,name,last_name,email,enterprise,position):  
+    def creater(self,ident,code,name,last_name,age,email,enterprise,position,company_years):  
         temp = []
         dates = [{ 
                 'id':ident,
                 'code':code,
                 'name':name,
                 'last_name':last_name,
+                'age':age,
                 'email':email,
                 'enterprise':enterprise,
-                'position':position
+                'position':position,
+                'company_years':company_years
                 }]
 
         with open(self.field_name , 'a') as archivo: 
